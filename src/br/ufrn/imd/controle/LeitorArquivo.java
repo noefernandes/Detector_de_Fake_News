@@ -1,34 +1,48 @@
 package br.ufrn.imd.controle;
 
-import java.util.ArrayList;
-import java.io.File;
-import java.io.FileNotFoundException;
+import br.ufrn.imd.modelo.Noticia;
 import java.io.FileReader;
-import java.util.Scanner;
+import com.opencsv.CSVReader;
+import java.util.ArrayList;
+
+
 
 public class LeitorArquivo {
 	
-	protected ArrayList<String> linhas;
+	//https://www.geeksforgeeks.org/reading-csv-file-java-using-opencv/
+	
+	protected ArrayList<Noticia> noticiasArquivo;
 	
 	public LeitorArquivo() {
-		linhas = new ArrayList<String>();
+		noticiasArquivo = new ArrayList<Noticia>();
 	}
 	
-	public void load() throws FileNotFoundException {
-		Scanner scanner = new Scanner(new FileReader("boatos.csv"));
-	    
-	    scanner.useDelimiter(";");
-	    
-	    int count = 0;
+	public void readFile(String file) 
+	{ 
+	  
+	    try { 
+	  
+	        FileReader filereader = new FileReader(file); 
+	   
+	        CSVReader csvReader = new CSVReader(filereader); 
+	        String[] nextRecord; 
+	        
+	        
+	        while ((nextRecord = csvReader.readNext()) != null) { 
+	           Noticia temp = new Noticia();
+	           temp.setHashCode(nextRecord[0]);
+	           temp.setConteudo(nextRecord[1]);
+	           temp.setUrl(nextRecord[2]);
+	           //temp.setData(nextRecord[3]);
+	           noticiasArquivo.add(temp);
+	        } 
+	    } 
+	    catch (Exception e) { 
+	        e.printStackTrace(); 
+	    } 
+	} 
 	
-	    while (scanner.hasNext())
-	    {
-	    	//System.out.println(scanner.next());
-	    	count = count + 1 ;
-	    }
-	     
-	    System.out.println("value:" + count);
-	    scanner.close();
-	    
+	public  ArrayList<Noticia> getListaFormatada(){
+		return noticiasArquivo;
 	}
 }

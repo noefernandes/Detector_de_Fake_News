@@ -2,15 +2,15 @@ package br.ufrn.imd.modelo;
 //import java.util.Date;
 
 public class Noticia {
-	String hashcode;
+	String codigo;
 	String conteudo;
 	String url;
 	
-	public String getHashcode() {
-		return hashcode;
+	public String getCodigo() {
+		return codigo;
 	}
-	public void setHashcode(String hashcode) {
-		this.hashcode = hashcode;
+	public void setHashCode(String codigo) {
+		this.codigo = codigo;
 	}
 	public String getConteudo() {
 		return conteudo;
