@@ -14,11 +14,11 @@ public class TratadorString {
 	}
 
 	public String filtro() {
-		noticia = noticia.replaceAll("[\\.$|,|;|']", "");
-		noticia = noticia.replaceAll("[ãáà]", "a");
-		noticia = noticia.replaceAll("[õó]","o" );
-		noticia = noticia.replaceAll("é","e");
-		noticia = noticia.replaceAll("ú","u");
+		noticia = noticia.replaceAll("[\\.$|,|;|']1234567890", "");
+		noticia = noticia.replaceAll("[ãáàâ]", "a");
+		noticia = noticia.replaceAll("[õóô]","o" );
+		noticia = noticia.replaceAll("[éê]","e");
+		noticia = noticia.replaceAll("[úû]","u");
 		noticia = noticia.replaceAll("í","i");
 
 		String str = "";
