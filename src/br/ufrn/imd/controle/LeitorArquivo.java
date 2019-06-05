@@ -1,48 +1,52 @@
 package br.ufrn.imd.controle;
 
 import br.ufrn.imd.modelo.Noticia;
+import br.ufrn.imd.modelo.NoticiaCSV;
 import java.io.FileReader;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 import java.util.ArrayList;
+
+import java.util.List;
 
 
 
 public class LeitorArquivo {
 	
 	//https://www.geeksforgeeks.org/reading-csv-file-java-using-opencv/
-	
-	protected ArrayList<Noticia> noticiasArquivo;
+	protected ArrayList<Noticia> listaNoticias;
 	
 	public LeitorArquivo() {
-		noticiasArquivo = new ArrayList<Noticia>();
+		listaNoticias = new ArrayList<Noticia>();
 	}
 	
-	public void readFile(String file) 
-	{ 
+	public void readFile(String file) { 
 	  
-	    try { 
-	  
+		try { 
+	      
 	        FileReader filereader = new FileReader(file); 
-	   
-	        CSVReader csvReader = new CSVReader(filereader); 
-	        String[] nextRecord; 
+	        CSVReader csvReader = new CSVReaderBuilder(filereader) 
+	                                  .withSkipLines(1) 
+	                                  .build(); 
+	        List<String[]> allData = csvReader.readAll(); 
 	        
-	        
-	        while ((nextRecord = csvReader.readNext()) != null) { 
-	           Noticia temp = new Noticia();
-	           temp.setHashCode(nextRecord[0]);
-	           temp.setConteudo(nextRecord[1]);
-	           temp.setUrl(nextRecord[2]);
-	           //temp.setData(nextRecord[3]);
-	           noticiasArquivo.add(temp);
+	        // Colocando os objetos NoticiaCSV para o ArrayList. 
+	        for (String[] row : allData) { 
+	        	NoticiaCSV temp = new NoticiaCSV();
+	        	temp.setCodigo(row[0]);
+	        	temp.setConteudo(row[1]);
+	        	temp.setUrl(row[2]);
+	        	temp.setData(row[3]);
+	        	
+	        	listaNoticias.add(temp);
 	        } 
 	    } 
-	    catch (Exception e) { 
+	    catch (Exception e) { 		//Criar nova exceção
 	        e.printStackTrace(); 
 	    } 
-	} 
+	}
 	
-	public  ArrayList<Noticia> getListaFormatada(){
-		return noticiasArquivo;
+	public ArrayList<Noticia> getListaNoticias(){
+		return listaNoticias;
 	}
 }

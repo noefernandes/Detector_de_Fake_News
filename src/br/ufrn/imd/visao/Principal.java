@@ -20,15 +20,15 @@ public class Principal {
 		LeitorArquivo leitor = new LeitorArquivo();
 		leitor.readFile("boatos.csv");
 		
-	
-		
 		ArrayList<Noticia> lista = new ArrayList<Noticia>();
-		lista = leitor.getListaFormatada();
 		
-		for(Noticia campo: lista) {
-			System.out.println(campo.getCodigo());
-			System.out.println(campo.getConteudo());
-			System.out.println(campo.getUrl());
+		lista = leitor.getListaNoticias();
+		
+		for(Noticia temp: lista) {
+			System.out.println(temp.getCodigo());
+			System.out.println(temp.getConteudo());
+			System.out.println(temp.getUrl());
+			System.out.println(temp.getData());
 		}
 	}
 
