@@ -3,13 +3,14 @@ package br.ufrn.imd.visao;
 import java.io.FileNotFoundException;
 
 import br.ufrn.imd.modelo.Noticia;
+import br.ufrn.imd.controle.TratadorString;
 import br.ufrn.imd.controle.LeitorArquivo;
 import br.ufrn.imd.controle.WebScraping;
 import java.util.ArrayList;
 
 public class Principal {
 
-	public static void main(String[] args) throws FileNotFoundException{
+	public static void main(String[] args){
 		
 		//WebScraping web = new WebScraping("https://esporte.uol.com.br/futebol/ultimas-noticias/2019/05/27/cruzeiro-se-explica-de-denuncias-e-inquerito-policial-e-coisa-politica.htm");
 	
@@ -17,7 +18,7 @@ public class Principal {
 		
 		//System.out.println(web.getTexto());
 		
-		LeitorArquivo leitor = new LeitorArquivo();
+		/*LeitorArquivo leitor = new LeitorArquivo();
 		leitor.readFile("boatos.csv");
 		
 		ArrayList<Noticia> lista = new ArrayList<Noticia>();
@@ -29,7 +30,15 @@ public class Principal {
 			System.out.println(temp.getConteudo());
 			System.out.println(temp.getUrl());
 			System.out.println(temp.getData());
-		}
+		}*/
+		
+		String teste = "João é um botijão carrão um () , . --botijão doidão 2 345";
+		TratadorString noticia = new TratadorString(teste);
+		
+		
+		
+		String not = noticia.filtro();
+		System.out.println(noticia.filtro());
 	}
 
 }

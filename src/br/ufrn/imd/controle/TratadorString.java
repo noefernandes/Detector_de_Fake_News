@@ -1,4 +1,4 @@
-package br.ufrn.imd.modelo;
+package br.ufrn.imd.controle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,14 +7,14 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 public class TratadorString {
-	protected String noticia;
+	public String noticia;
 	
 	public TratadorString(String s_) {
 		noticia = s_;
 	}
 
 	public String filtro() {
-		noticia = noticia.replaceAll("[\\.$|,|;|']1234567890", "");
+		noticia = noticia.replaceAll("[-\\.$|,|;|']1234567890", "");
 		noticia = noticia.replaceAll("[ãáàâ]", "a");
 		noticia = noticia.replaceAll("[õóô]","o" );
 		noticia = noticia.replaceAll("[éê]","e");

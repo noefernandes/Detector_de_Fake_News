@@ -11,5 +11,13 @@
 	<classpathentry kind="lib" path="C:/Users/Geilson Pessoa/Documents/exercicioslp/Detector_de_Fake_News/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Geilson Pessoa/Documents/exercicioslp/Detector_de_Fake_News/commons-text-1.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Geilson Pessoa/Documents/exercicioslp/Detector_de_Fake_News/opencsv-4.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-beanutils-1.9.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-collections-3.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-collections4-4.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-lang3-3.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-logging-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-text-1.3.jar"/>
+	<classpathentry kind="lib" path="jsoup-1.12.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="opencsv-4.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
