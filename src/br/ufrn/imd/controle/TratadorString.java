@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.TreeSet;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class TratadorString {
 	public String noticia;
 	
@@ -15,13 +17,9 @@ public class TratadorString {
 
 	public String filtro() {
 		noticia = noticia.replaceAll("[-\\.$|'|1234567890]", "");
-		noticia = noticia.replaceAll("[,|;|:|(|)%|]", "");
-		
-		noticia = noticia.replaceAll("[ãáàâ]", "a");
-		noticia = noticia.replaceAll("[õóô]","o" );
-		noticia = noticia.replaceAll("[éê]","e");
-		noticia = noticia.replaceAll("[úû]","u");
-		noticia = noticia.replaceAll("í","i");
+		noticia = noticia.replaceAll("[?|!|,|;|:|(|)%|]", "");
+
+		noticia = StringUtils.stripAccents(noticia);
 
 		String str = "";
 		String [] oss = noticia.split(" ");

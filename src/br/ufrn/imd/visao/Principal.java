@@ -12,28 +12,18 @@ public class Principal {
 
 	public static void main(String[] args){
 		
-		//WebScraping web = new WebScraping("https://esporte.uol.com.br/futebol/ultimas-noticias/2019/05/27/cruzeiro-se-explica-de-denuncias-e-inquerito-policial-e-coisa-politica.htm");
-	
-		//web.load();
-		
-		//System.out.println(web.getTexto());
-		
+		//Criando leitor de arquivo.
 		LeitorArquivo leitor = new LeitorArquivo();
+		//Lendo arquivo a partir de caminho.
 		leitor.readFile("boatos.csv");
 		
+		//Criando array de noticias.
 		ArrayList<Noticia> lista = new ArrayList<Noticia>();
 		
+		//Recebendo array com as noticias (cada linha). 
 		lista = leitor.getListaNoticias();
 		
-		/*for(Noticia temp: lista) {
-			System.out.println(temp.getCodigo());
-			System.out.println(temp.getConteudo());
-			System.out.println(temp.getUrl());
-			System.out.println(temp.getData());
-		}
-		*/
-		
-		
+		//Criando tratador de string e pegando a última noticia para teste.
 		TratadorString trat = new TratadorString(lista.get(lista.size() - 1).getConteudo());
 		
 		String str = trat.filtro();
