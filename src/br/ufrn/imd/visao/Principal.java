@@ -18,27 +18,27 @@ public class Principal {
 		
 		//System.out.println(web.getTexto());
 		
-		/*LeitorArquivo leitor = new LeitorArquivo();
+		LeitorArquivo leitor = new LeitorArquivo();
 		leitor.readFile("boatos.csv");
 		
 		ArrayList<Noticia> lista = new ArrayList<Noticia>();
 		
 		lista = leitor.getListaNoticias();
 		
-		for(Noticia temp: lista) {
+		/*for(Noticia temp: lista) {
 			System.out.println(temp.getCodigo());
 			System.out.println(temp.getConteudo());
 			System.out.println(temp.getUrl());
 			System.out.println(temp.getData());
-		}*/
-		
-		String teste = "João é um botijão carrão um () , . --botijão doidão 2 345";
-		TratadorString noticia = new TratadorString(teste);
+		}
+		*/
 		
 		
+		TratadorString trat = new TratadorString(lista.get(lista.size() - 1).getConteudo());
 		
-		String not = noticia.filtro();
-		System.out.println(noticia.filtro());
+		String str = trat.filtro();
+		
+		System.out.println(str);
 	}
 
 }

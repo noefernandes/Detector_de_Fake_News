@@ -14,7 +14,9 @@ public class TratadorString {
 	}
 
 	public String filtro() {
-		noticia = noticia.replaceAll("[-\\.$|,|;|']1234567890", "");
+		noticia = noticia.replaceAll("[-\\.$|'|1234567890]", "");
+		noticia = noticia.replaceAll("[,|;|:|(|)%|]", "");
+		
 		noticia = noticia.replaceAll("[ãáàâ]", "a");
 		noticia = noticia.replaceAll("[õóô]","o" );
 		noticia = noticia.replaceAll("[éê]","e");
