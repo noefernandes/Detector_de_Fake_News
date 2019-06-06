@@ -27,7 +27,7 @@ public class Principal {
 		TratadorString trat = new TratadorString(lista.get(lista.size() - 1).getConteudo());
 		
 		String str = trat.filtro();
-		
+		 str = trat.toSHA1(str);
 		System.out.println(str);
 	}
 
