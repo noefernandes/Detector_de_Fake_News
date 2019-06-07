@@ -2,22 +2,16 @@ package br.ufrn.imd.modelo;
 //import java.util.Date;
 
 public abstract class Noticia {
-	String codigo;
-	String conteudo;
-	String url;
-	String data;
 	
-	public String getCodigo() {
-		return codigo;
+	protected String texto;
+	protected String url;
+	protected String data;
+	
+	public String getTexto() {
+		return texto;
 	}
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
-	public String getConteudo() {
-		return conteudo;
-	}
-	public void setConteudo(String conteudo) {
-		this.conteudo = conteudo;
+	public void setTexto(String texto) {
+		this.texto = texto;
 	}
 	public String getUrl() {
 		return url;
@@ -25,6 +19,7 @@ public abstract class Noticia {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	
 	public String getData() {
 		return data;
 	}

@@ -1,6 +1,5 @@
 package br.ufrn.imd.controle;
 
-import br.ufrn.imd.modelo.Noticia;
 import br.ufrn.imd.modelo.NoticiaCSV;
 import java.io.FileReader;
 import com.opencsv.CSVReader;
@@ -14,10 +13,10 @@ import java.util.List;
 public class LeitorArquivo {
 	
 	//https://www.geeksforgeeks.org/reading-csv-file-java-using-opencv/
-	protected ArrayList<Noticia> listaNoticias;
+	protected ArrayList<NoticiaCSV> listaNoticias;
 	
 	public LeitorArquivo() {
-		listaNoticias = new ArrayList<Noticia>();
+		listaNoticias = new ArrayList<NoticiaCSV>();
 	}
 	
 	public void readFile(String file) { 
@@ -33,8 +32,7 @@ public class LeitorArquivo {
 	        // Colocando os objetos NoticiaCSV para o ArrayList. 
 	        for (String[] row : allData) { 
 	        	NoticiaCSV temp = new NoticiaCSV();
-	        	temp.setCodigo(row[0]);
-	        	temp.setConteudo(row[1]);
+	        	temp.setTexto(row[1]);
 	        	temp.setUrl(row[2]);
 	        	temp.setData(row[3]);
 	        	
@@ -46,7 +44,7 @@ public class LeitorArquivo {
 	    } 
 	}
 	
-	public ArrayList<Noticia> getListaNoticias(){
+	public ArrayList<NoticiaCSV> getListaNoticias(){
 		return listaNoticias;
 	}
 }
