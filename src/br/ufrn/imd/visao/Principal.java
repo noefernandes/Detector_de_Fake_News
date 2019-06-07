@@ -19,8 +19,6 @@ public class Principal {
 		//Lendo arquivo a partir de caminho.
 		leitor.readFile("boatos.csv");
 		
-		
-		
 	}
 
 }
