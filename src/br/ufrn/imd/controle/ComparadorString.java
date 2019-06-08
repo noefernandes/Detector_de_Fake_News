@@ -1,11 +1,24 @@
 package br.ufrn.imd.controle;
 
-import java.util.Arrays;
 
 public class ComparadorString {
 	//https://rosettacode.org/wiki/Jaro_distance
 	//https://pt.wikipedia.org/wiki/Dist%C3%A2ncia_Levenshtein
 	//https://www.baeldung.com/java-levenshtein-distance
+	
+	private static ComparadorString instancia;
+	
+	private ComparadorString() {
+		
+	}
+	
+	public static ComparadorString getInstancia() {
+		if(instancia == null) {
+			instancia = new ComparadorString();
+		}
+		
+		return instancia;
+	}
 	
 	public double distanciaLevenshtein(String str1, String str2) {
 		int tamanhoStr1 = str1.length();

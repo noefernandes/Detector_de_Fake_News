@@ -8,15 +8,22 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-
-
 public class LeitorArquivo {
 	
 	//https://www.geeksforgeeks.org/reading-csv-file-java-using-opencv/
 	protected ArrayList<NoticiaCSV> listaNoticias;
+	private static LeitorArquivo instancia;
 	
-	public LeitorArquivo() {
+	private LeitorArquivo() {
 		listaNoticias = new ArrayList<NoticiaCSV>();
+	}
+	
+	public static LeitorArquivo getInstancia() {
+		if(instancia == null) {
+			instancia = new LeitorArquivo();
+		}
+		
+		return instancia;
 	}
 	
 	public void readFile(String file) { 

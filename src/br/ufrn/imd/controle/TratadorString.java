@@ -1,8 +1,6 @@
 package br.ufrn.imd.controle;
 
-//import java.util.ArrayList;
-//import java.util.List;
-//import java.util.Arrays;
+
 import java.util.Iterator;
 import java.util.TreeSet;
 import java.math.BigInteger; 
@@ -13,10 +11,24 @@ import org.apache.commons.lang3.StringUtils;
 
 public class TratadorString {
 
+	private static TratadorString instancia;
+	
+	private TratadorString() {
+		
+	}
+	
+	public static TratadorString getInstancia() {
+		if(instancia == null) {
+			instancia = new TratadorString();
+		}
+		
+		return instancia;
+	}
+	
 	public String filtrar(String noticia) {
 		//remoção de toda pontuação
 		noticia = noticia.replaceAll("[-\\.$|'|1234567890]", "");
-		noticia = noticia.replaceAll("[’|“|”|?|!|,|;|:|(|)%|]", "");
+		noticia = noticia.replaceAll("[\\[|\\]|+|*|&|@|#|’|“|”|?|!|,|;|:|(|)%|]", "");
 		//remoção dos acentos
 		noticia = StringUtils.stripAccents(noticia);
 		

@@ -9,13 +9,23 @@ import br.ufrn.imd.controle.TratadorString;
 
 public class BancoNoticias {
 	
+	private static BancoNoticias instancia;
 	protected HashMap<String, Noticia> noticias;
 	protected TratadorString trat;
 	
-	public BancoNoticias() {
+	private BancoNoticias() {
 		noticias = new HashMap<String, Noticia>();
-		trat = new TratadorString();
+		trat = TratadorString.getInstancia();
 	}
+	
+	public static BancoNoticias getInstancia() {
+		if(instancia == null) {
+			instancia = new BancoNoticias();
+		}
+		
+		return instancia;
+	}
+
 	
 	public void addNoticia(String code, Noticia noticia) {
 		noticias.put(code, noticia);
@@ -49,5 +59,9 @@ public class BancoNoticias {
 		    				  );
 		    System.out.println();
 		}
+	}
+	
+	public int size() {
+		return noticias.size();
 	}
 }
