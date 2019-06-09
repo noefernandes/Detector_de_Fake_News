@@ -8,14 +8,22 @@ import org.jsoup.select.Elements;
 
 public class WebScraping {
 	
+	private static WebScraping instancia;
 	protected String titulo;
 	protected String texto;
 	protected String url;
 	
-	public WebScraping(String url) {
-		this.url = url;
+	private WebScraping() {
 		titulo = "";
 		texto = "";
+	}
+	
+	public static WebScraping getInstancia() {
+		if(instancia == null) {
+			instancia = new WebScraping();
+		}
+		
+		return instancia;
 	}
 	
 	public void setUrl(String url) { 
@@ -34,11 +42,12 @@ public class WebScraping {
 		return url;
 	}
 	
-	public void load() {			//Carrega a noticia, inicializando os campos da classe.
+	public void load(String urlAtual) {			//Carrega a noticia, inicializando os campos da classe.
 		
 		try {
+			url = urlAtual;
 			Document doc = new Document("");
-			doc = Jsoup.connect(url).get();
+			doc = Jsoup.connect(urlAtual).get();
 			this.titulo = doc.title();
 			Elements element = doc.select("p");
 			for (Element t : element) {

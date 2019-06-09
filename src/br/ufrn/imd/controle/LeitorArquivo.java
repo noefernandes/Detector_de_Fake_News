@@ -26,7 +26,7 @@ public class LeitorArquivo {
 		return instancia;
 	}
 	
-	public void readFile(String file) { 
+	public void readFile(String file){ 
 	  
 		try { 
 	      

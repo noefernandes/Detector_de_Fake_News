@@ -2,7 +2,6 @@ package br.ufrn.imd.controle;
 
 
 public class ComparadorString {
-	//https://rosettacode.org/wiki/Jaro_distance
 	//https://pt.wikipedia.org/wiki/Dist%C3%A2ncia_Levenshtein
 	//https://www.baeldung.com/java-levenshtein-distance
 	
@@ -53,14 +52,6 @@ public class ComparadorString {
 			}
 		}	
 		
-		for(i = 0; i <= tamanhoStr1; i++) {
-			for(j = 0; j <= tamanhoStr2; j++) {
-				System.out.print(tabela[i][j]);
-			}
-			System.out.println();
-		}
-		
-
 		return (1 - ((double) tabela[tamanhoStr1][tamanhoStr2] / Math.max(tamanhoStr1, tamanhoStr2) ) ) *100;
 	}
 	

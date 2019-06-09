@@ -61,7 +61,7 @@ public class BancoNoticias {
 		}
 	}
 	
-	public int size() {
-		return noticias.size();
+	public HashMap<String, Noticia> getNoticiasDoBanco() {
+		return noticias;
 	}
 }
