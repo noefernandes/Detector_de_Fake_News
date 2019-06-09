@@ -1,7 +1,7 @@
 package br.ufrn.imd.modelo;
 //import java.util.Date;
 
-public abstract class Noticia {
+public abstract class Noticia implements NoticiaInterface{
 	
 	protected String texto;
 	protected String url;

@@ -30,7 +30,7 @@ public class WebScraping {
 		this.url = url;
 	}
 	
-	public String getTitle() {
+	public String getTitulo() {
 		return titulo;
 	}
 	
